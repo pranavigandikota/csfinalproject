@@ -1,0 +1,275 @@
+def welcome():
+    knife_art = """ 
+    ⡟⠢⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⡇⠀⢸⠙⠲⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⢱⠀⠸⡄⠀⠀⠉⠓⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠘⡄⠀⢳⠀⠀⠀⠀⠀⠈⠓⠦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠹⡄⠀⢣⠀⠀⠀⠀⠀⠀⠀⠈⠙⠢⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠹⣄⠀⠱⣄⢀⡀⠀⠀⠀⠀⠀⠀⠀⠙⠲⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠈⢳⣄⠈⠲⣍⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠘⠷⣄⠈⠓⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠲⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠈⠙⣦⣄⠈⠓⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢦⣀⠈⠑⠦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⢦⣀⠀⠉⠢⢄⡀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠞⠉⠉⠓⠦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠦⣀⠀⠉⠲⢄⡀⠀⠀⢀⣴⡟⠃⠀⠀⠀⠀⠀⠈⠑⠦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠦⣄⡀⠈⠓⢤⣼⣭⡷⣄⠀⠀⠀⢼⣿⣷⠀⠀⠀⠙⠶⣄⡀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢳⣴⠿⠋⠻⢿⣆⡑⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠷⣤⡀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠿⢶⣌⠲⢄⡀⠀⠀⠀⠀⠀⣀⣀⡀⠈⠙⢷⣄⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⣦⣙⡢⣄⠀⠀⠀⠘⠛⠃⠀⠀⢀⡸⣷
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⢿⣧⣙⠢⢄⡀⠀⠀⢀⡴⠋⠀⣼
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⢿⣦⡈⠓⢴⠟⠀⠀⣴⠿
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣶⢾⣤⣷⡟⠁⠀      
+    """
+    print("Welcome to STORMBOUND TERROR, a single-player story game...")
+    print(knife_art)
+    print("You arrive at a remote mansion for a weekend party, but things soon go awry as a torrential storm rages outside.") 
+    print("The lights flicker off; when they return, someone is dead.")
+    print("Panic erupts and trust crumbles. You and your best friend flee to an upstairs room, but the true terror is yet to come.") 
+    print("Can you trust anyone, even those closest to you?") 
+    print("Your fight for survival starts now.")
+    input("\nPress Enter to continue...")
+
+#Initializing the game state 
+#Setting health at 100 + inventory with first aid kit, and evil choices at 0
+health = 100
+inventory = ["First Aid Kit"]
+evil_choices = 0
+
+#Writing a function to output remaining health as a bar and percentage
+def print_health():
+    total_boxes = 10
+    filled_boxes = int(total_boxes * (health / 100))
+    health_bar = '█' * filled_boxes + '▒' * (total_boxes - filled_boxes)
+    print(f"Your Health: {health_bar} {health}%")
+
+#Writing a function to output your current inventory
+def print_inventory():
+    print(f"Your Inventory: {inventory}")
+    
+#Writing a function to check player health and end the game if health reaches 0    
+def health_check():
+    global health
+    if health <= 0:
+        print("Your feeble attempt to escape was lackluster. Try not to die next time. Game Over!")
+        print_health()
+        return True  #Ending the game
+    else:
+        return False  #Game keeps going
+    
+def scenario_1():
+    #Globalize health, inventory, & evil choices variables
+    global health
+    global inventory
+    global evil_choices
+
+    #Introduce scenario & choice
+    print("\nWhile hiding with your best friend, you open a nearby box while they aren't looking. There's a knife in it, which could come in handy if you need to defend yourself.")
+    print("You now have a choice — do you (1) tell your friend about the knife or (2) hide that you have it in case they're the killer?")
+
+    #User inputs choice
+    choice = input("Enter 1 or 2: ")
+
+    if choice == '1':
+        print("Uh oh! Your friend freaks out when you pull out the knife and pepper sprays you in the face, wrestling it out of your hands. Eyes burning, you explain it's not yours, but they keep the knife regardless…")
+        #Decrease health by 20 due to the pepper spray, no change to inventory
+        health -= 20
+        print_health()
+        print_inventory()
+    elif choice == '2':
+        print("Safe choice! As guilty as you might feel, you don't know if the killer is your best friend or not. It's good to have a hidden weapon on hand…")
+        #No change to health, knife is added to your inventory, evil choice made
+        inventory.append("Knife")
+        evil_choices += 1
+        print_health()
+        print_inventory()
+    else:
+        print("Sorry, there's no getting out of this choice! Please enter 1 or 2...")
+        #Reprint scenario
+        scenario_1()
+
+ 
+def scenario_2():
+    #Globalize health and inventory variables
+    global health
+    global inventory
+
+    #Introduce scenario & choice
+    print("\nYou and your friend decide to sneak around to find an exit, but it's hard to see now that the storm's taken the power out. Your best friend remembers that there's a small light on their keychain.")
+    print("Do you (1) use the light to navigate, risking discovery? Or (2), quietly feel your way through the mansion's twists and turns?.")
+
+    #User inputs choice
+    choice = input("Enter 1 or 2: ")
+
+    if choice == '1':
+        print("You've made it down a few floors using the light, but get the strangest feeling that you're being watched. You and your friend start to quicken your pace as you hear heavy footsteps not far behind…")
+        #No change to health, add flashlight to inventory
+        inventory.append("Flashlight")
+        print_health()
+        print_inventory()
+    elif choice == '2':
+        print("To avoid attracting attention, you and your friend move quietly in the dark, keeping one hand on the wall to feel your way. Still, visibility is low and you miss the first step on a tall staircase, tumbling down with a muffled yell. You dust yourself off, but the damage is done: you hear heavy footsteps running your way…")
+        #Decrease health because you fell, add flashlight to inventory
+        health -= 20
+        inventory.append("Flashlight")
+        print_health()
+        print_inventory()
+    else:
+        print("What, scared to choose? Please enter 1 or 2...")
+        #Reprint scenario
+        scenario_2()
+
+def scenario_3():
+    #Globalize health and inventory variables
+    global health
+    global inventory
+
+    #Introduce scenario & choice
+    print("\nYou and your friend immediately burst into a sprint in the pitch-dark corridor. A masked figure, who might be the killer, is hot on your heels. You see a balcony up ahead, but the drop is too steep and now the only way out is the way you came from.")
+    print("You know you need to make a life-or-death decision: do you (1) distract the person by throwing your friend's flashlight at them, making your escape… or (2), make a stand and fight to survive?")
+
+    #User inputs choice
+    choice = input("Enter 1 or 2: ")
+
+    if choice == '1':
+        print("Your friend lobs the flashlight at the figure's head, catching them in the eye. You take the opportunity to run for the exit, but don't realize your friend rolled their ankle trying to follow you. They trip backwards and tumble off the balcony to certain death, but you have no time to mourn while making your escape…")
+        #Remove flashlight from inventory because it was thrown
+        inventory.remove("Flashlight")
+        print_health()
+        print_inventory()
+    elif choice == '2':
+        #If the user has the knife, it comes in handy here!
+        if "Knife" in inventory:
+            print("You get into a defensive stance, pulling out the knife up your sleeve. Your pursuer jumps back in surprise at your weapon, before charging at you with a crowbar. Your friend screams and tumbles backwards off the balcony to certain death, but you have no time to mourn. Heart pumping, you narrowly evade some deadly blows and manage to stab your opponent in the shoulder. Badly wounded but victorious, you manage to escape…")
+            #Decrease health by 40 because you were wounded
+            health -= 40
+            #User loses the knife
+            inventory.remove("Knife")
+            print_health()
+            print_inventory()
+        else:
+            print("You get into a defensive stance, fists up and ready to defend yourself. Your pursuer snickers at your shoddy attempt, before charging at you with a crowbar. Your friend screams and tumbles backwards off the balcony to certain death, but you have no time to mourn. The first hit of the crowbar has you seeing stars. You cough up blood...it was a stupid idea to fight without weapons.")
+            #User dies instantly, so health becomes 0
+            health = 0
+            #Use health_check function to end game
+            if health_check():
+                return
+    else:
+        print("Sorry, there's no getting out of this choice! Please enter 1 or 2...")
+        #Reprint scenario
+        scenario_3()
+    #Do general health check in case anything was missed logically, see if game is over for player
+    if health_check():
+        return
+
+def scenario_4():
+    #Globalize health, inventory, & evil choices variables
+    global health
+    global inventory
+    global evil_choices
+    
+    #Introduce scenario & choice
+    print("\nTears streaming down your face, you run straight for the car outside. However, you're met with a gruesome sight: a large tree, toppled by the raging storm, has crushed the car under its massive weight. You can make out blood and shattered glass. A trapped guest is pinned in the driver's seat, badly wounded. They groan as you open the door to pull them out. Time is ticking, but you know they won't make it without your help.")
+    print("Do you (1) attempt to carry them through the woods to safety, (2) do your best to perform First Aid before leaving to find help, or (3) abandon them to save yourself?")
+
+    #User inputs choice
+    choice = input("Enter 1, 2, or 3: ")
+
+    if choice == '1':
+        print("You decide there's no time to lose. The stranger is barely conscious. Straining with effort, you lift them up in an attempt to carry them to safety. Their blood seeps into your clothes, and the wind seems like it's pushing you back with each slow step. Just as you make it to the entrance of the woods, you hear a twig snap behind you. The killer from earlier lifts their crowbar, and the last thing you feel is a sharp pain as the world goes black…")
+        #User dies instantly, so health becomes 0
+        health = 0
+        #Use health_check function to end game
+        health_check()
+        return
+    elif choice == '2':
+        print("Panicked, you pull out your first aid kit to help them. You manage to dress their legs to stop the bleeding, but your medical know-how ends there. The stranger weakly points towards the driver's seat of the mangled car. You rifle through the debris and see an emergency flare, pocketing it. Promising that you'll come back for them, you limp off towards the woods. Your cuts and bruises ache with each step--maybe you shouldn't have used up all your first aid supplies on them?")
+        #Decrease health by 20% because you can't treat your own injuries
+        health -= 20
+        #Remove First Aid Kit from inventory, add Flare
+        inventory.remove("First Aid Kit")
+        inventory.append("Flare")
+        print_health()
+        print_inventory()
+    elif choice == '3':
+        print("The storm grows more violent as you make a split-second choice. With the car wrecked and the stranger badly wounded, you choose to prioritize your own escape. They reach a weak hand out as you run towards the woods, but you just send a final glance over your shoulder. Pulling out your first aid kit, you manage to treat some of your own cuts and bruises, choosing to focus on surviving the path ahead…")
+        #Increase health by 20% as you tend to your own injuries, make sure health stays at 100 or below
+        health += 20
+        if health > 100:
+            health = 100
+        #Remove First Aid Kit from inventory
+        inventory.remove("First Aid Kit")
+        evil_choices += 1
+        print_health()
+        print_inventory()
+    else:
+        print("Their life is in your hands--you need to make a choice! Please enter 1, 2, or 3...")
+        #Reprint scenario
+        scenario_4()
+
+    #Do general health check in case anything was missed logically, see if game is over for player
+    if health_check():
+        return
+
+def scenario_5():
+    #Globalize health and inventory variables
+    global health
+    global inventory
+    global evil_choices
+
+    #Introduce scenario & choice
+    print("\nYou dash through the slippery woods as your shoes sink into the muddy ground with each step. Desperate for signs of civilization, you find a road that cuts through the forest. You see a dark car approaching in the distance, its engine rumbling ominously. You hesitate--you have no way of knowing if the driver is the killer making their escape, or a potential savior.")
+    print("Do you (1) take your chances in the woods, or (2) attempt to signal the car in the hopes of getting away?")
+
+    #User inputs choice
+    choice = input("Enter 1 or 2: ")
+
+    if choice == '1':
+      if evil_choices == 2: 
+        print("The woods are dark, but you have no problem navigating a familiar route. You reach a hidden shed and take shelter from the storm, pulling out food and supplies. You've had a long night, and it's time to recharge...when the rain stops, you get ready to make your escape. The night's calm is deceptive, masking the truth that you were the real killer all along...")
+        print_health()
+      else:
+        print("Wary of the dark speeding car, you take your chances in the woods. You're exhausted and dehydrated, and it feels like the mud is pulling you down with each step. You see a rushing river and stop to cup your hands in the water to drink, but suddenly hear a loud rumbling. Too late, you turn around to a wave of mud and trees consuming everything in its wake. You scream, but there's no escaping this mudslide...maybe you should have taken your chances with the car?")
+        #User dies instantly, so health becomes 0
+        health = 0
+        #Use health_check function to end game
+        health_check()
+        return
+    elif choice == '2':
+        #If the user has the flare, it comes in handy here!
+        if "Flare" in inventory:
+          print("You dash out onto the road, reaching into your pocket for your emergency flare. Firing it upwards, an explosion of red sparks alerts the driver to your presence. They roll to a stop and take in your battered form, before ushering you into the car and calling 911. Congratulations! You've survived the game.")
+          #Remove Flare from inventory
+          inventory.remove("Flare")
+          print_health()
+        else: 
+          print("You make your choice and rush out onto the road for help. As the car accelerates on the slippery road, you realize too late that it can't see you yet. The headlights wash over you as the driver makes a frantic attempt to brake. The skidding car topples you over, throwing you to the ground. The impact leaves you bruised and disoriented--you've definitely broken a few bones. The driver jumps out of the car to help, promising to get you to safety…")
+          health -= 20
+          if health == 0: 
+            print("You come to on a stretcher at the hospital, head lolling to the side as you take in the clean white walls rushing by. You catch snippets of the medical personnel's frantic conversations before succumbing to your injuries. Better luck next time...")
+            print_health()
+          else: 
+            print("You wake up with a start at the hospital. Outside the door, the police are waiting to take your statement. Congratulations! You survived the game.")
+            health = 100
+            print_health()
+    else:
+        print("You won't get away that easy! Please enter 1 or 2...")
+        #Reprint scenario
+        scenario_5()
+
+if __name__ == "__main__":
+    while health > 0:
+        welcome()
+        scenario_1()
+        input("\nPress Enter to continue...")
+        scenario_2()
+        input("\nPress Enter to continue...")
+        scenario_3()
+        if health <= 0:
+            break
+        input("\nPress Enter to continue...")
+        scenario_4()
+        if health <= 0:
+            break
+        input("\nPress Enter to continue...")
+        scenario_5()
+        break
