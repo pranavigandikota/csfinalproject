@@ -98,7 +98,6 @@ def play_game():
         return
     return
 
-
 def scenario_1():
     #Globalize health, inventory, & evil choices variables
     global health
@@ -127,7 +126,6 @@ def scenario_1():
         print("Sorry, there's no getting out of this choice! Please enter 1 or 2...")
         #Reprint scenario
         scenario_1()
-
  
 def scenario_2():
     #Globalize health and inventory variables
