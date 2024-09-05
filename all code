@@ -35,27 +35,59 @@ health = 100
 inventory = ["First Aid Kit"]
 evil_choices = 0
 
-#Writing a function to output remaining health as a bar and percentage
-def print_health():
+#Writing a function to output remaining health as a bar and percentage + current inventory
+def print_stats():
     total_boxes = 10
     filled_boxes = int(total_boxes * (health / 100))
     health_bar = '█' * filled_boxes + '▒' * (total_boxes - filled_boxes)
     print(f"Your Health: {health_bar} {health}%")
-
-#Writing a function to output your current inventory
-def print_inventory():
     print(f"Your Inventory: {inventory}")
-    
-#Writing a function to check player health and end the game if health reaches 0    
-def health_check():
+
+#Writing a function to reinitialize the game if the player is starting over after dying
+def initializing():
+    global health
+    global inventory
+    global evil_choices
+    health = 100
+    inventory = ["First Aid Kit"]
+    evil_choices = 0
+
+#Writing a function to restart the game if the user wants to play again after dying
+def restart_game():
+    initializing()
+    play_game()
+
+#Writing a game over function to end/restart the game if health reaches 0    
+def game_over():
     global health
     if health <= 0:
-        print("Your feeble attempt to escape was lackluster. Try not to die next time. Game Over!")
-        print_health()
-        return True  #Ending the game
+        print("Try not to die next time. Game Over!")
+        print("Do you want to play again? Input Yes
+        choice = input()
+    if choice == "Yes" or choice == "yes":
+        restart_game()
     else:
-        return False  #Game keeps going
+        print("Sorry to see you go! Maybe next time...")
+        return
     
+def play_game(): 
+    welcome()
+    scenario_1()
+    input("\nPress Enter to continue...")
+    scenario_2()
+    input("\nPress Enter to continue...")
+    scenario_3()
+    if health <= 0:
+        return
+    input("\nPress Enter to continue...")
+    scenario_4()
+    if health <= 0:
+        return
+    input("\nPress Enter to continue...")
+    scenario_5()
+    return
+
+
 def scenario_1():
     #Globalize health, inventory, & evil choices variables
     global health
@@ -73,15 +105,13 @@ def scenario_1():
         print("Uh oh! Your friend freaks out when you pull out the knife and pepper sprays you in the face, wrestling it out of your hands. Eyes burning, you explain it's not yours, but they keep the knife regardless…")
         #Decrease health by 20 due to the pepper spray, no change to inventory
         health -= 20
-        print_health()
-        print_inventory()
+        print_stats()
     elif choice == '2':
         print("Safe choice! As guilty as you might feel, you don't know if the killer is your best friend or not. It's good to have a hidden weapon on hand…")
         #No change to health, knife is added to your inventory, evil choice made
         inventory.append("Knife")
         evil_choices += 1
-        print_health()
-        print_inventory()
+        print_stats()
     else:
         print("Sorry, there's no getting out of this choice! Please enter 1 or 2...")
         #Reprint scenario
@@ -104,15 +134,13 @@ def scenario_2():
         print("You've made it down a few floors using the light, but get the strangest feeling that you're being watched. You and your friend start to quicken your pace as you hear heavy footsteps not far behind…")
         #No change to health, add flashlight to inventory
         inventory.append("Flashlight")
-        print_health()
-        print_inventory()
+        print_stats()
     elif choice == '2':
         print("To avoid attracting attention, you and your friend move quietly in the dark, keeping one hand on the wall to feel your way. Still, visibility is low and you miss the first step on a tall staircase, tumbling down with a muffled yell. You dust yourself off, but the damage is done: you hear heavy footsteps running your way…")
         #Decrease health because you fell, add flashlight to inventory
         health -= 20
         inventory.append("Flashlight")
-        print_health()
-        print_inventory()
+        print_stats()
     else:
         print("What, scared to choose? Please enter 1 or 2...")
         #Reprint scenario
@@ -134,8 +162,7 @@ def scenario_3():
         print("Your friend lobs the flashlight at the figure's head, catching them in the eye. You take the opportunity to run for the exit, but don't realize your friend rolled their ankle trying to follow you. They trip backwards and tumble off the balcony to certain death, but you have no time to mourn while making your escape…")
         #Remove flashlight from inventory because it was thrown
         inventory.remove("Flashlight")
-        print_health()
-        print_inventory()
+        print_stats()
     elif choice == '2':
         #If the user has the knife, it comes in handy here!
         if "Knife" in inventory:
@@ -144,22 +171,16 @@ def scenario_3():
             health -= 40
             #User loses the knife
             inventory.remove("Knife")
-            print_health()
-            print_inventory()
+            print_stats()
         else:
             print("You get into a defensive stance, fists up and ready to defend yourself. Your pursuer snickers at your shoddy attempt, before charging at you with a crowbar. Your friend screams and tumbles backwards off the balcony to certain death, but you have no time to mourn. The first hit of the crowbar has you seeing stars. You cough up blood...it was a stupid idea to fight without weapons.")
             #User dies instantly, so health becomes 0
             health = 0
-            #Use health_check function to end game
-            if health_check():
-                return
+            return
     else:
         print("Sorry, there's no getting out of this choice! Please enter 1 or 2...")
         #Reprint scenario
         scenario_3()
-    #Do general health check in case anything was missed logically, see if game is over for player
-    if health_check():
-        return
 
 def scenario_4():
     #Globalize health, inventory, & evil choices variables
@@ -178,8 +199,6 @@ def scenario_4():
         print("You decide there's no time to lose. The stranger is barely conscious. Straining with effort, you lift them up in an attempt to carry them to safety. Their blood seeps into your clothes, and the wind seems like it's pushing you back with each slow step. Just as you make it to the entrance of the woods, you hear a twig snap behind you. The killer from earlier lifts their crowbar, and the last thing you feel is a sharp pain as the world goes black…")
         #User dies instantly, so health becomes 0
         health = 0
-        #Use health_check function to end game
-        health_check()
         return
     elif choice == '2':
         print("Panicked, you pull out your first aid kit to help them. You manage to dress their legs to stop the bleeding, but your medical know-how ends there. The stranger weakly points towards the driver's seat of the mangled car. You rifle through the debris and see an emergency flare, pocketing it. Promising that you'll come back for them, you limp off towards the woods. Your cuts and bruises ache with each step--maybe you shouldn't have used up all your first aid supplies on them?")
@@ -188,8 +207,7 @@ def scenario_4():
         #Remove First Aid Kit from inventory, add Flare
         inventory.remove("First Aid Kit")
         inventory.append("Flare")
-        print_health()
-        print_inventory()
+        print_stats()
     elif choice == '3':
         print("The storm grows more violent as you make a split-second choice. With the car wrecked and the stranger badly wounded, you choose to prioritize your own escape. They reach a weak hand out as you run towards the woods, but you just send a final glance over your shoulder. Pulling out your first aid kit, you manage to treat some of your own cuts and bruises, choosing to focus on surviving the path ahead…")
         #Increase health by 20% as you tend to your own injuries, make sure health stays at 100 or below
@@ -199,16 +217,11 @@ def scenario_4():
         #Remove First Aid Kit from inventory
         inventory.remove("First Aid Kit")
         evil_choices += 1
-        print_health()
-        print_inventory()
+        print_stats()
     else:
         print("Their life is in your hands--you need to make a choice! Please enter 1, 2, or 3...")
         #Reprint scenario
         scenario_4()
-
-    #Do general health check in case anything was missed logically, see if game is over for player
-    if health_check():
-        return
 
 def scenario_5():
     #Globalize health and inventory variables
@@ -226,13 +239,11 @@ def scenario_5():
     if choice == '1':
       if evil_choices == 2: 
         print("The woods are dark, but you have no problem navigating a familiar route. You reach a hidden shed and take shelter from the storm, pulling out food and supplies. You've had a long night, and it's time to recharge...when the rain stops, you get ready to make your escape. The night's calm is deceptive, masking the truth that you were the real killer all along...")
-        print_health()
+        print_stats()
       else:
         print("Wary of the dark speeding car, you take your chances in the woods. You're exhausted and dehydrated, and it feels like the mud is pulling you down with each step. You see a rushing river and stop to cup your hands in the water to drink, but suddenly hear a loud rumbling. Too late, you turn around to a wave of mud and trees consuming everything in its wake. You scream, but there's no escaping this mudslide...maybe you should have taken your chances with the car?")
         #User dies instantly, so health becomes 0
         health = 0
-        #Use health_check function to end game
-        health_check()
         return
     elif choice == '2':
         #If the user has the flare, it comes in handy here!
@@ -240,36 +251,22 @@ def scenario_5():
           print("You dash out onto the road, reaching into your pocket for your emergency flare. Firing it upwards, an explosion of red sparks alerts the driver to your presence. They roll to a stop and take in your battered form, before ushering you into the car and calling 911. Congratulations! You've survived the game.")
           #Remove Flare from inventory
           inventory.remove("Flare")
-          print_health()
+          print_stats()
         else: 
           print("You make your choice and rush out onto the road for help. As the car accelerates on the slippery road, you realize too late that it can't see you yet. The headlights wash over you as the driver makes a frantic attempt to brake. The skidding car topples you over, throwing you to the ground. The impact leaves you bruised and disoriented--you've definitely broken a few bones. The driver jumps out of the car to help, promising to get you to safety…")
           health -= 20
-          if health == 0: 
+          if health == 0:
             print("You come to on a stretcher at the hospital, head lolling to the side as you take in the clean white walls rushing by. You catch snippets of the medical personnel's frantic conversations before succumbing to your injuries. Better luck next time...")
-            print_health()
+            print_stats()
           else: 
             print("You wake up with a start at the hospital. Outside the door, the police are waiting to take your statement. Congratulations! You survived the game.")
             health = 100
-            print_health()
+            print_stats()
     else:
         print("You won't get away that easy! Please enter 1 or 2...")
         #Reprint scenario
         scenario_5()
 
 if __name__ == "__main__":
-    while health > 0:
-        welcome()
-        scenario_1()
-        input("\nPress Enter to continue...")
-        scenario_2()
-        input("\nPress Enter to continue...")
-        scenario_3()
-        if health <= 0:
-            break
-        input("\nPress Enter to continue...")
-        scenario_4()
-        if health <= 0:
-            break
-        input("\nPress Enter to continue...")
-        scenario_5()
-        break
+    play_game()
+    
