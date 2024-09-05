@@ -62,7 +62,7 @@ def game_over():
     global health
     if health <= 0:
         print("Try not to die next time. Game Over!")
-        print("Do you want to play again? Input Yes or No")
+        print("Do you want to play again? Input Yes or No...")
         choice = input()
     if choice == "Yes" or choice == "yes":
         restart_game()
@@ -70,6 +70,8 @@ def game_over():
         print("Sorry to see you go! Maybe next time...")
         return
     else:
+        #Make health 10 to avoid printing extra statements when calling game_over again here
+        health = 10
         print("Please enter Yes or No")
         game_over()
 
