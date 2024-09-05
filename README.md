@@ -15,8 +15,7 @@ Requirements:
 Please make sure you have Python 3 installed. This project has been tested with Python 3.8 and above.
 
 Running the Game:
-1. Navigate to the project directory:
-   cd Files
+1. Navigate to the project directory, Files
 2. Run the game:
    python main.py
    
