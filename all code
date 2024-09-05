@@ -57,13 +57,13 @@ def restart_game():
     initializing()
     play_game()
 
-#Writing a game over function to end/restart the game if health reaches 0    
+#Writing a game over function to end/restart the game if health reaches 0 + to play again if a player wins
 def game_over():
     global health
     if health <= 0:
         print("Try not to die next time. Game Over!")
-        print("Do you want to play again? Input Yes or No...")
-        choice = input()
+    print("Do you want to play again? Input Yes or No...")
+    choice = input()
     if choice == "Yes" or choice == "yes":
         restart_game()
     elif choice == "No" or choice == "no":
@@ -93,9 +93,7 @@ def play_game():
         return
     input("\nPress Enter to continue...")
     scenario_5()
-    if health <= 0:
-        game_over()
-        return
+    game_over()
     return
 
 def scenario_1():
@@ -274,7 +272,7 @@ def scenario_5():
     else:
         print("You won't get away that easy! Please enter 1 or 2...")
         #Reprint scenario
-        scenario_5()
+        scenario_5()    
 
 if __name__ == "__main__":
     play_game()
