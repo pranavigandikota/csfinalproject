@@ -1,4 +1,4 @@
-ChatbotL Quack. I am CS50's duck debugger (ddb), an experimental AI for rubberducking. Quack quack. My replies might not always be accurate, so always think critically    and let me know if you think that I've erred. Conversations are logged. Quack quack quack.
+Chatbot: Quack. I am CS50's duck debugger (ddb), an experimental AI for rubberducking. Quack quack. My replies might not always be accurate, so always think critically and let me know if you think that I've erred. Conversations are logged. Quack quack quack.
 
 Me: i'm coding a story game where a user can input choices to alter their storyline. there's a health tracker variable that runs throughout the game, after each level health is output to tell the user where they're at. I want to write a game over function that tells the user when their health reaches zero and gives them the option to play the game from the beginning. how would I implement that?
 
@@ -159,7 +159,7 @@ Me: what does the cd mean? in cd Files
 
 Chatbot: The cd command stands for "change directory." It is used in the terminal to navigate to a different folder or directory. For example, cd Files changes the current directory to the "Files" directory.
 
-me: does that need to be included if there's only one directory
+Me: does that need to be included if there's only one directory
 
 Chatbot: If there's only one directory and the user is already in the correct directory, you can simplify the instructions. Here's the updated version:
     Running the Game:
